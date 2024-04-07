@@ -31,10 +31,16 @@ cd.. to go back from current directory
 
 5. create files like app.js , index.js , constant.js
 
-6  add type in package.json "module" : import wala trika
+6  add type in package.json "module" : import karne ka  trika
 
 7  To stop and run the server again use nodemon : npm i -D nodemon will install dependecny for the dev mode
 
 8. create  a dev script in package file 
 
-9. install dotenv as well , but it is imported other way will create problem :(
+9. install dotenv as well 
+
+10. Create folder controller , routes , database , middlewares , utility 
+
+11 Install prettier for dev mode will make code pretter and create 2 files .prettierignore .prettierrc  and create these file online 
+
+   ignore file which will git ignore will not touch 
