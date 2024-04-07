@@ -12,6 +12,15 @@ git branch -M main
 git remote add origin https://github.com/ManmeetSingh1012/Bakcend-Practice.git
 git push -u origin main
 
+
+for update:
+
+git status 
+git add .
+git commit -m "message"
+git push
+
+cd.. to go back from current directory
 */
 
 2.to create .gitignore file genrate it from google 
