@@ -1,4 +1,4 @@
-FOLLOW below steps for project creation
+ ***** FOLLOW below steps for project creation ****
 
 1.Create Project npm init
 
@@ -44,3 +44,16 @@ cd.. to go back from current directory
 11 Install prettier for dev mode will make code pretter and create 2 files .prettierignore .prettierrc  and create these file online 
 
    ignore file which will git ignore will not touch 
+
+
+12.Download cookie parser and CORS : Used in middlewares : Cross origin resource sharing , cookie related data
+
+13.Custom api error handling class creation 
+
+
+
+****** DataBase : Mongo DB Setup ******
+1.See code for setting up database
+In api we have req and res :- see docs for more detail 
+
+
