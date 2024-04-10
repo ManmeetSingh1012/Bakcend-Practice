@@ -50,6 +50,12 @@ cd.. to go back from current directory
 
 13.Custom api error handling class creation 
 
+14.Download mongoose-aggregate-paginate-v2 for writting querries for pagination for mongodb in mongoose.
+
+15 install bcrypt : hash your passwords.
+
+16. install json web token : for jwt genrator
+
 
 
 ****** DataBase : Mongo DB Setup ******

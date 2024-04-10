@@ -29,6 +29,6 @@ app.use(express.static("temp"));
 // middleware to deal with cookies
 app.use(cookieParser());
 
-//with req ,res we have next and err , next is flag for middleware
+//with req ,res in api we have next and err , next is flag for middleware : used jwt 
 
 export default app;
