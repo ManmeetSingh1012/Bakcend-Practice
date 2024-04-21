@@ -315,8 +315,118 @@ const refreshAccessToken = async (req, res) => {
 
 }
 
+
+
+
+
+const ChangePassword = async (req,res) =>{
+
+   const {oldpassword , newpassword} = req.body
+   const user = await User.findById( req.user?._id)
+
+   const isPasswordCorrect = user.isPasswordCorrect(oldpassword)
+
+   if(!isPasswordCorrect){ 
+      req.status(401).json({"message":"Wrong Password"})
+      throw new ApiError(201,"Incorrect Old Passoword")
+   }
+
+   
+   // if u see the user model u will see we have used pre middleware that will check the password is modified , if it is then it will bycrpt
+   // and then store , the pre will be called at save.
+   user.password = newpassword
+   await user.save({validateBeforeSave:false})
+
+   return res.status(200).json({
+      "status":"200",
+      "message":"Password Chaned Succesfully"
+   })
+
+
+}
+
+
+
+
+
+
+
+// Use to get current user data
+const getCurrentUser = async(req, res) => {
+   return res
+   .status(200)
+   .json({
+       "status":200,
+       "user":req.user,
+       "message" : "User fetched successfully"
+   })
+}
+
+// update user detail
+const updateAccountDetails = async(req, res) => {
+   const {fullname, email} = req.body
+
+   console.log("data",req.body)
+   if (!fullname || !email) {
+       throw new ApiError(400, "All fields are required")
+   }
+
+
+   const user = await User.findByIdAndUpdate(
+       req.user?._id,
+       {
+           $set: {
+               fullname:fullname,
+               email: email
+           }
+       },
+       {new: true}
+       
+   ).select("-password")
+
+   return res
+   .status(200)
+   .json({"status" :200, "user_updated_data":user, "message" : "Account details updated successfully"})
+};
+
+
+// here we have created seprate function for the updation of file
+const updateUserAvatar = async(req, res) => {
+   // here we are using req.files not files bec only one file is allowed by user
+   const avatarLocalPath = req.file?.path
+
+   if (!avatarLocalPath) {
+       throw new ApiError(400, "Avatar file is missing")
+   }
+
+   //TODO: delete old image - assignment
+
+   const avatar = await uploadoncloudinary(avatarLocalPath)
+
+   if (!avatar.url) {
+       throw new ApiError(400, "Error while uploading on avatar")
+       
+   }
+
+   const user = await User.findByIdAndUpdate(
+       req.user?._id,
+       {
+           $set:{
+               avatar: avatar.url
+           }
+       },
+       {new: true}
+   ).select("-password")
+
+   return res
+   .status(200)
+   .json({"status" :200, "user_updated_data":user, "message" : "Account details updated successfully"})
+}
+
+
+
 export default register;
-export { loginUser , logoutUser , refreshAccessToken}
+export { loginUser , logoutUser , refreshAccessToken , ChangePassword , getCurrentUser,updateAccountDetails, updateUserAvatar}
 
 
 

@@ -3,7 +3,8 @@ import register from "../Controllers/user.controller.js";
 import { upload } from "../Middlewares/multer.middleware.js"
 import { loginUser , logoutUser } from "../Controllers/user.controller.js";
 import { verifyJWT } from "../Middlewares/auth.middleware.js";
-import { refreshAccessToken } from "../Controllers/user.controller.js";
+import { refreshAccessToken , ChangePassword ,getCurrentUser , updateAccountDetails , updateUserAvatar} from "../Controllers/user.controller.js";
+import { get } from "mongoose";
 
 import .meta.d
 const userrouter = Router();
@@ -27,6 +28,14 @@ userrouter.route("/login").post(loginUser)
 userrouter.route("/logout").post(verifyJWT,logoutUser)
 
 userrouter.route("/refresh-token").post(refreshAccessToken)
+
+userrouter.route("/changepassword").post(verifyJWT,ChangePassword)
+
+userrouter.route("/currentuser").post(verifyJWT,getCurrentUser)
+
+userrouter.route("/updatedetails").post(verifyJWT,updateAccountDetails)
+
+userrouter.route("/updateavatar").post(upload.single("avatar"),verifyJWT,updateUserAvatar)
 
 
 export default userrouter;
