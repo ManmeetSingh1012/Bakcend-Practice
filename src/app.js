@@ -31,4 +31,17 @@ app.use(cookieParser());
 
 //with req ,res in api we have next and err , next is flag for middleware : used jwt 
 
+// Routes Declration
+import route from "./Routes/root.routes.js"
+import userroute from "./Routes/user.route.js"
+
+
+app.use("/api/v1", route)
+app.use("/api/v1/user", userroute)
+
+
+app.get('/', (req, res) => {
+   res.send('Hello World!')
+ })
+
 export default app;

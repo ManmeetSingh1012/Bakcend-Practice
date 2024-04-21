@@ -1,4 +1,4 @@
 
-export const DB_NAME = 'YoutubeDatabase';
+export const DB_NAME = 'UserDatabase';
 
 

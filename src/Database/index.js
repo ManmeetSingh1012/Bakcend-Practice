@@ -1,16 +1,22 @@
 import mongoose from 'mongoose';
 import { DB_NAME } from '../constant.js';
-import { ApiError } from '../Utility/ApiError.js';
-
+import {ApiError} from '../utility/ApiError.js';
 
 
 
 const ConnectDB = () => {
    return new Promise(async (resolve, reject) => {
       try {
-
-         const connectionInstance = await mongoose.connect(`${process.env.Mongodb_url}/${DB_NAME}`);
+         
+         const connectionInstance = await mongoose.connect(`${process.env.Mongodb_url}`);
          console.log('Connected to DB', connectionInstance.connection.host);
+
+
+         
+        
+        
+
+
          resolve();
          
       } catch(error) {

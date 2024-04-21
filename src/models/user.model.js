@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
-import jwt from "json-web-token";
+import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt"
+
+
 
 const user = new mongoose.Schema({
 
@@ -26,7 +28,7 @@ const user = new mongoose.Schema({
 
    avatar: {
       type: String, // third party image url
-      required: true,
+      required: false,
    },
 
 
@@ -75,6 +77,7 @@ user.methods.isPasswordCorrect = async function (password) {
 
 user.methods.genrateAcessToken = function () {
 
+ 
    return jwt.sign(
       {
          _id : this._id ,
@@ -87,6 +90,9 @@ user.methods.genrateAcessToken = function () {
          expiresIn : process.env.ACESS_TOKEN_EXPIREY
       }
    )
+
+   
+
 }
 
 

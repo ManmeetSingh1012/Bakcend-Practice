@@ -56,10 +56,53 @@ cd.. to go back from current directory
 
 16. install json web token : for jwt genrator
 
+17. Multer : helps to take vedio , imaage as input
+
+18.cloudnary : cloud srvice
+
 
 
 ****** DataBase : Mongo DB Setup ******
 1.See code for setting up database
-In api we have req and res :- see docs for more detail 
+In api we have req and res next flag :- see docs for more detail 
 
 
+************ HTTP CRASH COURSE *********
+
+http stands for hyper text transfer protocol.
+URL , URI , URN : uniform resource locater , indentifier, name .
+
+
+http headers : Meta Data -> data of data it is stored in the form of key-value pair.
+http headers are used for caching , auth , state manage , getting info of the user.
+
+
+types : req header , res header , representation header  , payload header
+
+
+Most common Header:
+accept : application/json :- data it accepts
+user-agent : traffic source :- browser , mobile browser etc.
+auth : for auth , jwt token
+content_type : for type
+cookie and cache control , CORS , Security Headers are also there used by big tech company
+
+
+HTTP METHODS:
+GET , POST , PUT ,DELETE , PATCh  rare used : TRACE , OPTIONS
+
+
+HTTP Status Code :
+100 range :- Informational , 200 range :- sucess  , 300 :- redirection , 400:- client error , 500 :- server error
+
+200 - ok , 201 - created, 202 -accepted , 307 : temp redirection , 308 : premanent redirection , 
+400 :- bad req , 401 :- unauthorized , 402 : - payment required , 404 :- not found , 500:- internal server err , 504 :- gateway time out
+
+ACESS TOKEN  :- Used to authenticate user , have short life span
+REFRESH TOKEN :- Used to authenticate user , have long life span 
+
+acess token can be genrated when expired , from refresh token.
+
+
+***** WARNING *****
+File Uploading code not working and searching if user exist is not working in register user part , data is not going through form data :- only json data accepting
