@@ -31,11 +31,11 @@ userrouter.route("/refresh-token").post(refreshAccessToken)
 
 userrouter.route("/changepassword").post(verifyJWT,ChangePassword)
 
-userrouter.route("/currentuser").post(verifyJWT,getCurrentUser)
+userrouter.route("/currentuser").get(verifyJWT,getCurrentUser)
 
-userrouter.route("/updatedetails").post(verifyJWT,updateAccountDetails)
+userrouter.route("/updatedetails").patch(verifyJWT,updateAccountDetails)
 
-userrouter.route("/updateavatar").post(upload.single("avatar"),verifyJWT,updateUserAvatar)
+userrouter.route("/updateavatar").patch(upload.single("avatar"),verifyJWT,updateUserAvatar)
 
 
 export default userrouter;

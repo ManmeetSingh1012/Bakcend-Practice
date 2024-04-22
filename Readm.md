@@ -60,7 +60,7 @@ cd.. to go back from current directory
 
 18.cloudnary : cloud srvice
 
-
+19.Pending : CORS , proxy , connect frontend with backend , aggerigation pipline:-connect collections of databases.
 
 ****** DataBase : Mongo DB Setup ******
 1.See code for setting up database
@@ -106,3 +106,6 @@ acess token can be genrated when expired , from refresh token.
 
 ***** WARNING *****
 File Uploading code not working and searching if user exist is not working in register user part , data is not going through form data :- only json data accepting
+
+
+
